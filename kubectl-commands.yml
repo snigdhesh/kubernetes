@@ -1,5 +1,6 @@
 commands:
   pod:
-    create: kubectl create -f <definition file name>
+    create: kubectl create -f <definition file name> (create and apply are same)
+    apply: kubectl apply -f <definition file name> (create and apply are same)
     view: kubectl get pods
     detail-info: kubectl describe pod <pod name>
