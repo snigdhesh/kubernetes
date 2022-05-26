@@ -1,0 +1,13 @@
+#Following are root props for any definition file
+
+apiVersion: #K8s API version Ex: v1 or apps/v1 etc
+kind: #Type of object. Ex: Pod or ReplicaSet or Deployment or Service etc (Should start with capital letter and it's case-sensitive)
+metadata: #Data about the object, like object's name and labels etc. This is written in form of dictionary.
+  name: #Name of object you are trying to create in K8s. Ex: myapp-pod or myapp-service or myapp-repica-set or myapp-deployment.
+  labels:
+    app: #App name. Ex: myapp
+    type: #(or tire instead of type)This helps to identify when you have huge number of objects created. It's like category name. Ex: front-end
+spec: #Specification : Depending on object you are going to create. This is different for different objects, so it's important to understand and refer to documentation to figure out right spec.
+  containers: #Container information
+    - name: nginx-container # - Indicates that it's first item in list.
+      image: nginx
