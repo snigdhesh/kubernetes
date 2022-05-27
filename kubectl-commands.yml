@@ -1,4 +1,6 @@
 commands:
+  nodes:
+    view: kubectl get nodes
   namespaces:
     view: kubectl get namespaces
   pod:
@@ -7,4 +9,23 @@ commands:
     view: kubectl get pods
     detail-info: kubectl describe pod <pod name>
     delete: kubectl delete pod <pod name>
+    edit: kubectl edit pod <pod name> #Opens pod definition in an editor.
+  replication-controller:
+    view: kubectl get replicationcontrollers
+    delete: kubectl delete replicationcontroller <replication controller name>
+  replica-set:
+    delete: kubectl delete replicaset <replica-set name> #Where "replicaset" is type of object. This also deletes underlying pods automatically.
+    view: kubectl get replicasets
+    replace: kubectl replace -f <replica-set definition file name> #This is to update replica-set definition file with modifications. (For example, we can modify replicas: 6 in yml file.)
+    scale: 
+      - kubectl scale --replicas=6 -f <replica-set definition file name> #This command will scale replica sets to 6.
+      - kubectl scale --replicas=6 replicaset myapp-replicaset #This is an alternate command to scale pods. Where "replicaset" is type of object, and "myapp-replicaset" is name of replica-set.
+
+  arguments:
+    - usage: <command> -o yaml > test.yml
+      description: Extracts yaml definition of an object, to test.yml
+    - usage: <command> -o wide
+      description: Gives verbose mode of information of an object.
+    - usage: <command> --dry-run=client
+      description: It will allow us to run the object, without creating.
   

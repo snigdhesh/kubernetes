@@ -10,5 +10,8 @@ metadata: #Data about the object, like object's name and labels etc. This is wri
     type: #(or tire instead of type)This helps to identify when you have huge number of objects created. It's like category name. Ex: front-end
 spec: #Specification : Depending on object you are going to create. This is different for different objects, so it's important to understand and refer to documentation to figure out right spec.
   containers: #Container information
-    - name: nginx-container # - Indicates that it's first item in list.
+    - name: nginx-container # Hypher here Indicates that it's first item in list.
       image: nginx
+      env: #This is how we define env variables to a container.
+        - name: #Environment variable name
+          value: #Environment variable value

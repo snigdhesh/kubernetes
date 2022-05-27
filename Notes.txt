@@ -1,0 +1,26 @@
+Architecture:
+====================
+- kubernets have Clusters;
+- Clusters have Nodes;
+- Nodes have Pods;
+- Pods have Containers;
+
+kubernetes > Clusters> Nodes >  Pods >  containers
+
+Controllers:
+=============
+- Controllers are brain behind kubernetes.
+- Controllers are the processes, that monitor kubernetes objects and respoond accordingly.
+
+Example: Replication Controller.
+- Replication controller can bring a new pod, when current pod crashes. - Single pod case.
+- Replication controllers allows us to run multilpe instances of single pod on kubernetes cluster.
+- This provides "High Availability", when one "pod" crashes, another "pod" can serve the request.
+- This also provides "Load Balancing", when traffic increases, additional pod is deployed to service the traffic. In other words to balance the load.
+- When traffic increases even more, more pods are deployed across multiple nodes.
+
+Replication Controller vs Replica Set.
+======================================
+Replication controller - Old technology
+Replica set - new technology (recommended)
+
