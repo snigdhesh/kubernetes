@@ -30,8 +30,7 @@ commands:
     rollout: kubectl rollout status deployment/<deployment name> #To see status of rollouts
     undo: kubectl rollout undo deployment/<deployment name> #This will destroy new deployed pods and restart old ones.
     view-revisions: kubectl rollout history deployment/<deployment name>
-    update-image: kubectl set image deployment/<deployment name> #This will update image and restart deployment, however image in definition file will not be modified.
-
+    update-image: kubectl set image deployment <deployment name> <container name>=<image name>:<image version> #This will update image and restart deployment, however image in definition file will not be modified.
   arguments:
     - usage: <command> -o yaml > test.yml
       description: Extracts yaml definition of an object, to test.yml
@@ -39,6 +38,7 @@ commands:
       description: Gives verbose mode of information of an object.
     - usage: <command> --dry-run=client
       description: It will allow us to run the object, without creating.
-    - usage: kubectl create -f <definition file name> --record
-      description: This will record the cause of change, while new deployment happens.
+    - usage: <command> --record
+      example: kubectl create -f deployment-definition.yml --record
+      description: This will record the command you executed, while new deployment happens. (Try running "kubectl rollout history deployment <deployment name>" to see effect)
   
