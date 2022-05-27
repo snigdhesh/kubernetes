@@ -1,0 +1,9 @@
+
+
+Deployment: It's a kubernetes object (like POD, REPLICASET ..) which comes higher in the hierarchy
+- It allows us to do following
+    -Rolling updates: Restarting production apps one by one (when new feature is deployed), is called rolling updates.
+    -Rollback
+
+How to deploy your app to production?
+We make use of definition file.

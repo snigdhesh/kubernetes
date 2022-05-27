@@ -1,0 +1,24 @@
+apiVersion: apps/v1 #This is mandatory, deloyment won't accept any apiVersion other than "apps/v1"
+kind: Deployment
+metadata:
+  name: myapp-deployment #Name of object
+  labels:
+    app: myapp
+    type: front-end
+spec:
+  template: #Replication Controller uses this template to create multilpe instances of a pod.
+    metadata:
+      name: myapp-pod
+      labels:
+        app: myapp
+        type: front-end
+    spec:
+      containers:
+        - name: nginx-container
+          image: nginx
+  replicas: 3
+  selector: #This section helps deployment set to identify what pods fall under it. (Even the pods that are not created by deployment)
+            #This is not mandatory field.
+    matchLabels: #This just matches labels with pods - to identify pods.
+      type: front-end
+
