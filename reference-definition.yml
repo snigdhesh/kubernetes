@@ -5,6 +5,7 @@ kind: #Type of object. Ex: Pod or ReplicaSet or Deployment or Service etc (Shoul
 metadata: #Data about the object, like object's name and labels etc. This is written in form of dictionary.
   name: #Name of object you are trying to create in K8s. Ex: myapp-pod or myapp-service or myapp-repica-set or myapp-deployment.
   labels:
+    env: #Environment where you deploy. Ex: development, qat, production
     app: #App name. Ex: myapp
     type: #(or tire instead of type)This helps to identify when you have huge number of objects created. It's like category name. Ex: front-end
 spec: #Specification : Depending on object you are going to create. This is different for different objects, so it's important to understand and refer to documentation to figure out right spec.

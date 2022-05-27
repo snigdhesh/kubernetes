@@ -1,6 +1,10 @@
 commands:
+  namespaces:
+    view: kubectl get namespaces
   pod:
     create: kubectl create -f <definition file name> (create and apply are same)
     apply: kubectl apply -f <definition file name> (create and apply are same)
     view: kubectl get pods
     detail-info: kubectl describe pod <pod name>
+    delete: kubectl delete pod <pod name>
+  
