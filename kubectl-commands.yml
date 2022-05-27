@@ -39,4 +39,6 @@ commands:
       description: Gives verbose mode of information of an object.
     - usage: <command> --dry-run=client
       description: It will allow us to run the object, without creating.
+    - usage: kubectl create -f <definition file name> --record
+      description: This will record the cause of change, while new deployment happens.
   
