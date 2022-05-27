@@ -7,3 +7,8 @@ Deployment: It's a kubernetes object (like POD, REPLICASET ..) which comes highe
 
 How to deploy your app to production?
 We make use of definition file.
+
+How to use different strategy types?
+use "kubectl describe deployment <deployment name>" to know strategy type.
+- If "Recreate" strategy is used, all existing instaces of a pod will shutdown and new instances of pod will start.
+- If "RollingUpdate" strategy, it goes one by one. One instance shuts down and new instace starts. This happens for all instance one by one. (This is recommended and default to avoid downtime in production)

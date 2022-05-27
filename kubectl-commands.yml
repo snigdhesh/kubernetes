@@ -1,4 +1,6 @@
 commands:
+  all:
+    view: kubectl get all #Shows all pods, services, replicasets and deployments.
   nodes:
     view: kubectl get nodes
   namespaces:
@@ -21,6 +23,14 @@ commands:
     scale: 
       - kubectl scale --replicas=6 -f <replica-set definition file name> #This command will scale replica sets to 6.
       - kubectl scale --replicas=6 replicaset myapp-replicaset #This is an alternate command to scale pods. Where "replicaset" is type of object, and "myapp-replicaset" is name of replica-set.
+  deployments:
+    create: kubectl create -f <deployment definition file name>
+    update: kubectl apply -f <deployment definition file name>
+    view: kubectl get deployments
+    rollout: kubectl rollout status deployment/<deployment name>
+    undo: kubectl rollout undo deployment/<deployment name> #This will destroy new deployed pods and restart old ones.
+    view-revisions: kubectl rollout history deployment/<deployment name>
+    update-image: kubectl set image deployment/<deployment name> #This will update image and restart deployment, however image in definition file will not be modified.
 
   arguments:
     - usage: <command> -o yaml > test.yml
