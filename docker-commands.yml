@@ -9,4 +9,10 @@ commands:
         #8083= localhost port.;
         #80= nginx port;
         #nginx= image name;
+  container:
+    link: 
+      description: This links container to container. Example= voting-container is dependent on redis container.
+      command: docker run -d --name=<container name> -p <local host port>:<container port> --link <container name>:<alias name for link> <image name>
+      example: docker run -d --name=voting-container -p 5000:80 --link redis:redis voting-image
+
 
