@@ -1,0 +1,12 @@
+commands:
+  generic:
+    port-forwarding: docker run -d --name test-container -p 8083:80 nginx
+      #Where 
+        #-d= detached mode; 
+        #--name= argument attribute;  
+        #test-container = container name (argument value);
+        #-p= port forwarding;
+        #8083= localhost port.;
+        #80= nginx port;
+        #nginx= image name;
+

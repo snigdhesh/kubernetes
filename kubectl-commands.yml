@@ -1,4 +1,9 @@
 commands:
+  generic:
+    config: kubectl config view #Shows your username for any node.
+    port-forward: kubectl port-forward service/myapp-service 8082:80
+                  #Where 8082=localhost; 
+                  #80=port of myapp-service.
   all:
     view: kubectl get all #Shows all pods, services, replicasets and deployments.
     view-all-components: kubectl get po -A #Shows all kubernetes components.

@@ -1,0 +1,18 @@
+
+How service works?
+Port forwarding happens like shown below.
+    Localhost > Node > service > pod (target)
+
+Issues and solutions:
+- We cannot access "minikube" node from localhost, while minikube is installed on docker.
+- Which means localhost cannot talk to docker container, without port forwarding.
+- Minikube is public image, and port is not exposed.
+- Work around for this is to do port forwarding on service directly. (Instead of sending request to Node from localhost, we send request to service for testing purposes) 
+  Example:  kubectl port-forward service/myapp-service 8082:80
+                    #Where 8082=localhost; 
+                    #80=port of myapp-service.
+- Hence, service just blindly forwards all requests coming to it, to POD.
+	
+Example:
+Approach1 [Has limitation with docker]: localhost > Node > Service > POD (Target)
+Approach2 [Work around for above limitation, just to test service]: localhost > Service > POD (Target)

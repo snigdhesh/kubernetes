@@ -1,0 +1,5 @@
+commands:
+  service:
+    run: minikube service myapp-service --url #Tells us where the service is available.
+         #Which means, we are forwarding request sent to localhost:8082, to myapp-service's port number 80.
+         #IP of myapp-service is mapped internally, while running "kubectl port-forward" command.
