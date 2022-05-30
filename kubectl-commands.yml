@@ -1,6 +1,7 @@
 commands:
   all:
     view: kubectl get all #Shows all pods, services, replicasets and deployments.
+    view-all-components: kubectl get po -A #Shows all kubernetes components.
   nodes:
     view: kubectl get nodes
   namespaces:
