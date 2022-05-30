@@ -31,6 +31,9 @@ commands:
     undo: kubectl rollout undo deployment/<deployment name> #This will destroy new deployed pods and restart old ones.
     view-revisions: kubectl rollout history deployment/<deployment name>
     update-image: kubectl set image deployment <deployment name> <container name>=<image name>:<image version> #This will update image and restart deployment, however image in definition file will not be modified.
+  services:
+    create: kubectl create -f <service definition file name>
+    view: kubectl get services #Gives list of services.
   arguments:
     - usage: <command> -o yaml > test.yml
       description: Extracts yaml definition of an object, to test.yml
