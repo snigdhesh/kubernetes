@@ -1,0 +1,16 @@
+apiVersion: v1 #API version
+kind: Service #Type of object to be created
+metadata:
+  name: myapp-service #Name of service.
+spec: #This is where we create service.
+      #This part is what makes every definition file, different.
+  type: NodePort #Type of service we are creating.
+  ports: #You can have multilpe port mappings for a single service.
+    - targetPort: 80 #Port of POD, cause this is where our request should go atlast.
+      port: 80 #This is the port of service object itself.
+      nodePort: 30008 #This is port on node, where external host hit -> Node -> Service -> Pod -> web-app.
+  selector: #Provide list of labels, to identify pod. These lables are coming from pod, so check pod-definition.yml file.
+            #This links service to the pod.
+    app: myapp
+    type: front-end
+
