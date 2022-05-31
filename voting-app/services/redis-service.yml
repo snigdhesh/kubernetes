@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis #Name of service
+  labels:
+    name: redis-service
+    app: demo-voting-app
+spec: #No type of service is given here, which means it's defaulted to 'ClusterIP' type of service.
+  ports:
+    - port: 6379 #Default port of redis
+      targetPort: 6379 #Default port of redis
+  selector: #This is used to connect pod to service, just copy labels from redis-pod to link.
+    name: redis-pod
+    app: demo-voting-app

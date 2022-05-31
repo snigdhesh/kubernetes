@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: db #Name of service
+  labels:
+    name: postgres-service
+    app: demo-voting-app
+spec: #No type of service is given here, which means it's defaulted to 'ClusterIP' type of service.
+  ports:
+    - port: 5432 #Default port of postgres db.
+      targetPort: 5432 #Default port of redis
+  selector: #This is used to connect pod to service, just copy labels from postgres-pod to link.
+    name: postgres-pod
+    app: demo-voting-app

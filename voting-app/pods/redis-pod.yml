@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: redis-pod
+  labels:
+    name: redis-pod
+    app: demo-voting-app
+spec:
+  containers:
+    - name: redis #Name of container
+      image: redis #Name of image
+      ports:
+        - containerPort: 6379 #Cause this is the default port for image: redis

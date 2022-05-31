@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: voting-service #Name of service
+  labels:
+    name: voting-service
+    app: demo-voting-app
+spec: #These service has to be accessed by users, externally. So set type to NodePort
+  type: NodePort
+  ports:
+    - port: 80 #Default port of http webapp
+      targetPort: 80 #Default port of http webapp
+      nodePort: 30004 #This should be within range of IPs.
+  selector: #This is used to connect pod to service, just copy labels from voting-app-pod to link.
+    name: voting-app-pod
+    app: demo-voting-app
