@@ -1,0 +1,12 @@
+K8s Services enable communication between various components within and out of applciations.
+K8s helps us to connect applications together with other applications or users.
+
+App:
+pods: serving front end
+pods: for running back end
+pods: data services
+
+For example:
+- Services enable connectivity between these groups of pods.
+- Communication between backend and front end pods
+- Helps in establishing connectivity to external datasources.
