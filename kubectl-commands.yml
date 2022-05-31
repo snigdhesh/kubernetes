@@ -7,6 +7,7 @@ commands:
   all:
     view: kubectl get all #Shows all pods, services, replicasets and deployments.
     view-all-components: kubectl get po -A #Shows all kubernetes components.
+    deleteAll: kubectl delete --all pods/deployments/services --namespace=foo #namespace is not mandatory if you are using default namespace.
   nodes:
     view: kubectl get nodes
   namespaces:
@@ -17,7 +18,6 @@ commands:
     view: kubectl get pods
     detail-info: kubectl describe pod <pod name>
     delete: kubectl delete pod <pod name>
-    deleteAll: kubectl delete --all pods --namespace=foo #namespace is not mandatory if you are using default namespace.
     edit: kubectl edit pod <pod name> #Opens pod definition in an editor.
   replication-controller:
     view: kubectl get replicationcontrollers
