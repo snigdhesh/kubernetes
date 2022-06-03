@@ -11,7 +11,8 @@ commands:
   nodes:
     view: kubectl get nodes
   namespaces:
-    view: kubectl get namespaces
+    view-all: kubectl get namespaces
+    create: kubectl create namespace <namespace name>
   pod:
     create: kubectl create -f <definition file name> (create and apply are same)
     apply: kubectl apply -f <definition file name> (create and apply are same)
