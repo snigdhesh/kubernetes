@@ -44,7 +44,8 @@ commands:
     delete: kubectl delete service <service name> #Deletes a service and underlying objects
   arguments:
     - usage: <command> -o yaml > test.yml
-      description: Extracts yaml definition of an object, to test.yml
+      description: Extracts yaml definition of an object, to test.yml (or) gets definition file of K8s object.
+      example: kubectl get pod <podName> -o yaml > test.yaml
     - usage: <command> -o wide
       description: Gives verbose mode of information of an object.
     - usage: <command> --dry-run=client
